@@ -1,5 +1,8 @@
 <?php
 include 'head.php';
+/*$options = ['cost' => 12];
+$pass = password_hash('admin@123', PASSWORD_DEFAULT, $options);
+$real_pass = password_verify('admin@123', $pass);*/
 ?>
   <body class="hold-transition login-page">
     <div class="login-box">
@@ -8,13 +11,14 @@ include 'head.php';
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="../../index2.html" method="post">
+        <form action="<?php echo ADMIN_URL.'join.php'?>" method="post" name="adminloginform">
+          <input type="hidden" name="admin_login" value="1">
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" name="email" class="form-control" placeholder="Email" required="required">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" name="password" class="form-control" placeholder="Password" required="required">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
