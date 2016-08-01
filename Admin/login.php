@@ -3,6 +3,7 @@ include 'head.php';
 /*$options = ['cost' => 12];
 $pass = password_hash('admin@123', PASSWORD_DEFAULT, $options);
 $real_pass = password_verify('admin@123', $pass);*/
+echo $session_obj->getGlobalMsg();
 ?>
   <body class="hold-transition login-page">
     <div class="login-box">
@@ -14,11 +15,11 @@ $real_pass = password_verify('admin@123', $pass);*/
         <form action="<?php echo ADMIN_URL.'join.php'?>" method="post" name="adminloginform">
           <input type="hidden" name="admin_login" value="1">
           <div class="form-group has-feedback">
-            <input type="email" name="email" class="form-control" placeholder="Email" required="required">
+            <input type="email" name="email" class="form-control" placeholder="Email" >
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+            <input type="password" name="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
