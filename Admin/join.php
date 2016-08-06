@@ -5,5 +5,8 @@ if(isset($_REQUEST['admin_login']) && $_REQUEST['admin_login'] == 1){
 	if($login_result == TRUE){
 		header('Location:'.ADMIN_URL);
 	}
+	else if($login_result == FALSE){
+		header('Location:'.ADMIN_URL.'login.php');
+	}
 }
 ?>

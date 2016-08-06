@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'head.php';
 if(!isset($_SESSION['admin_session']) && empty($_SESSION['admin_session'])){
     header('Location:'.ADMIN_URL.'login.php');    

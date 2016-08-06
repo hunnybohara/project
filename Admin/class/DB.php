@@ -30,18 +30,18 @@ class DB{
 					}					
 				}
 				else{
-					$session_obj->setGlobalMsg('Email and Password not matched', 'error');
-					//return 'Email and Password not matched';
+					Session::setGlobalMsg('Email and Password not matched', 'error');
+					return FALSE;
 				}
 			}
 			else{
-				$session_obj->setGlobalMsg('Password required', 'error');
-				//return 'Password required';
+				Session::setGlobalMsg('Password required', 'error');
+				return FALSE;
 			}
 		}		
 		else{
-			$session_obj->setGlobalMsg('Email required', 'error');
-			//return 'Email required';
+			Session::setGlobalMsg('Email required', 'error');
+			return FALSE;
 		}
 	}
 }
