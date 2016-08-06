@@ -33,7 +33,7 @@ class Session{
 	public function getGlobalMsg(){		
 		if(isset($_SESSION['globalMessage']) && !empty($_SESSION['globalMessage'])){
 			$globalMessage = $_SESSION['globalMessage'];
-			//unset($_SESSION['globalMessage']);
+			unset($_SESSION['globalMessage']);
 			return $globalMessage;
 		}
 	}

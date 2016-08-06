@@ -18,16 +18,20 @@ class DB{
 
 	public function adminLogin($email = NULL, $password = NULL){		
 		if(!empty($email)){
-			if(!empty($password)){
-				$pass = password_hash($password, PASSWORD_DEFAULT);				
-				$chkAdminQry = mysqli_query($this->con, "SELECT `id` FROM `users` WHERE `email` = '".$email."' AND `password` = '".$password."' AND `is_admin` = 1 AND `status` = 1") or die(mysql_error());				
-				if(!empty($chkAdminQry)){
-					$chkAdminRow = mysqli_num_rows($chkAdminQry);
-					if(!empty($chkAdminRow)){
-						$chkAdminRes = mysqli_fetch_assoc($chkAdminQry);
-						$id = $chkAdminRes['id'];
-						return TRUE;						
-					}					
+			if(!empty($password)){				
+				$chkAdminQry = mysqli_query($this->con, "SELECT `id`, `password` FROM `users` WHERE `email` = '".$email."' AND `is_admin` = 1 AND `status` = 1") or die(mysql_error());				
+				if(mysqli_num_rows($chkAdminQry) > 0){					
+					$chkAdminRes = mysqli_fetch_assoc($chkAdminQry);
+					if(password_verify($password, $chkAdminRes['password']) == 1){
+						$id = $chkAdminRes['id'];									
+						$_SESSION['admin_session'] = 1;
+						$_SESSION['admin_user'] = $id;
+						return TRUE;
+					}
+					else{
+						Session::setGlobalMsg('Email and Password not matched', 'error');
+						return FALSE;
+					}										
 				}
 				else{
 					Session::setGlobalMsg('Email and Password not matched', 'error');
