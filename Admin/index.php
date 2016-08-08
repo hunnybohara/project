@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <?php
 include 'head.php';
 if(!isset($_SESSION['admin_session']) && empty($_SESSION['admin_session'])){

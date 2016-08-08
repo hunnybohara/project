@@ -231,7 +231,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="<?php echo ADMIN_URL.'/profile.php';?>" class="btn btn-default btn-flat">Profile</a>
+                <a href="<?php echo ADMIN_URL.'admin_profile.php';?>" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
